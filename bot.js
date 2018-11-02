@@ -1,71 +1,29 @@
-var ServerID = "507694894295416832";// اي دي الروم
-var ChannelID = "507696158983061505";
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '!';
-
-client.on('warn', console.warn);
-
-client.on('error', console.error);
+client.on('ready', () => console.log('Im Ready For Sell! AG STORE'));
 
 
-
-client.on('ready', () => console.log('ProBot Credits Miner Discord.js Script'));
-
-client.on('disconnect', () => console.log('PROBOT credits miner had disconnected!'));
-
-client.on('reconnecting', () => console.log('PROBOT credits miner is reconnecting...'));
-
-
-function timerFunc() {
-    client.on('message', msg => {
-        client.guilds.get(ServerID).channels.get(ChannelID).send(Math.random().toString(36).substring(7))
-
-
-    });
-}
-
-client.on('message', message => {
-
-  if (message.author.bot) return;
-
-  if (!message.content.startsWith(prefix)) return;
-
-
-
-  let command = message.content.split(" ")[0];
-
-  command = command.slice(prefix.length);
-
-
-
-let args = message.content.split(" ").slice(1);
-
-if(!args) return message.channel.send('${prefix}say <words>');	
-
-
-
-if (command == "say") {
-
-if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply("*لا تملك الصلاحيات المطلوبه**");
-
-
-
-message.channel.send(args.join("  "))
-
-    message.delete();
-
+client.on('message', async msg => {
+let vip;
+msg.channel.send("ماذا تبيع ؟").then(ms => {
+let c = msg.guild.channels.find(c => c.name === "vip-shop")
+ if (!message.member.roles.find('name', 'Vip seller')) return message.reply('**هذا الامر مخصص فقط للـ VIP SELLER !**').then(message => message.delete(3000));
+  if (msg.content === '!sellv') {
+    let cK = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
+if(co.first().length < 1) return;
+vip = co.first().content
+})
+let price;
+msg.channel.send("السعر؟").then(ms => {
+    let cK = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
+if(co.first().length < 1) return;
+price = co.first().content
+})
+c.send(vip)
+})
   }
-
-});
-client.on('message', message => {
-     if (message.content === "!av-set") {
-client.user.setAvatar(`https://cdn.discordapp.com/avatars/324672376455299074/524312009e5ce435a1adf99080f76e63.jpg`)
- 
-}
 });
 
-var timer = setTimeout(timerFunc, 1000);
 
 client.login(process.env.BOT_TOKEN); 
