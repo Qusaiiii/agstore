@@ -10,20 +10,20 @@ let price;
 let desc;
 let c = msg.guild.channels.find(c => c.name === "vip-shop")
   if (msg.content === '!sellv') {
- ms.edit("ماذا تبيع ?")
+ msg.edit("ماذا تبيع ?")
  let co = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 price = co.first().content
 })
- ms.edit("السعر ?")
+ msg.edit("السعر ?")
  let cp = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 price = co.first().content
 })
- ms.edit("الوصف ?")
+ msg.edit("الوصف ?")
  let cd = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
-decs = co.first().content
+desc = co.first().content
  })
         var embed = new Discord.RichEmbed()
         .setTitle('**AG VIP STORE**')
