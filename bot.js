@@ -3,14 +3,13 @@ const client = new Discord.Client();
 const prefix = '!';
 client.on('ready', () => console.log('Im Ready For Sell! AG STORE'));
 
-
 client.on('message', async msg => {
 let vip;
 let price;
 let desc;
 let c = msg.guild.channels.find(c => c.name === "vip-shop")
   if (msg.content === '!sellv') {
- msg.channel.send("ماذا تريد ان تبيع؟");
+ msg.channel.send("ماذا تريد ان تبيع؟").then.(msg => {
  let co = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 vip = co.first().content
