@@ -9,7 +9,7 @@ let price;
 let desc;
 let co = msg.guild.channels.find(c => c.name === "vip-shop")
   if (msg.content === '!sellv') {
- msg.channel.send("ماذا تريد ان تبيع؟").then(msg => {
+ msg.channel.send("ماذا تريد ان تبيع؟")
  let co = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 vip = co.first().content
