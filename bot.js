@@ -10,7 +10,7 @@ let price;
 let desc;
 let c = msg.guild.channels.find(c => c.name === "vip-shop")
   if (msg.content === '!sellv') {
-let ms =  msg.channel.send("ماذا تريد ان تبيع؟")
+msg.channel.send("ماذا تريد ان تبيع؟").then(ms => {
  let co = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 vip = co.first().content
@@ -36,7 +36,7 @@ desc = co.first().content
             msg.channel.send(`**تم نشر السلعة** :white_check_mark: `)
             msg.delete();
         c.send("@everyone", {embed})
+})
     }
-});
-	  
+});  
 client.login(process.env.BOT_TOKEN); 
