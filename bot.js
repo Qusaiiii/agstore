@@ -16,12 +16,12 @@ let ms =  msg.channel.send("ماذا تريد ان تبيع؟")
  let co = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 vip = co.first().content
-})
+
  ms.edit("السعر ?")
  let cp = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
 price = co.first().content
-})
+
  ms.edit("الوصف ?")
  let cd = await msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
 if(co.first().length < 1) return;
