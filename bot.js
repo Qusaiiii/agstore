@@ -1,13 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '!';
-client.on('ready', () => console.log('Im Ready For Sell! AG STORE'));
-
-const Discord = require('discord.js');
-const client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`IM READY FOR SELL!${client.user.tag}!`);
 });
 
 client.on('message', async msg => {
