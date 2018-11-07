@@ -1,3 +1,6 @@
+var ServerID = '482968365405831201';
+var ChannelID = "507254997210365953";
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const prefix = '!';
@@ -5,11 +8,11 @@ const prefix = '!';
 client.on('ready', () => {
   console.log(`IM READY FOR SELL!, ${client.user.tag}!`);
 });
-
 client.on('message', async msg => {
 let vip;
 let price;
 let desc;
+let c = msg.guild.channels.find(c => c.name === "vip-shop")
   if (msg.content === '!sellv') {
 msg.channel.send("ماذا تبيع ؟").then(ms => {
     let c = msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
@@ -36,10 +39,10 @@ desc = co.first().content
         .addField('الوصف', desc);
             msg.channel.send(`**تم نشر السلعة** :white_check_mark: `)
             msg.delete();
-        msg.guild.channels.find("vip-shop").send("everyone", {embed})
-
-    });
-  }
+       client.guilds.get(ServerID).channels.get(ChannelID).send("everyone", {embed})
+   
+});
+    }
 });
 
 client.login(process.env.BOT_TOKEN); 
