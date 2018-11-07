@@ -15,8 +15,8 @@ let desc;
     if (message.content.startsWith("!sellv")) {
       if (message.author.bot) return
                                      }
- let ms = message.channel.send({embed: new Discord.RichEmbed().setTitle('ماذا تريد ان تبيع؟').setColor(0xFF0000)}).then(function(m) {
- let co = await message.channel.awaitMessages(m => m.id = message.author.id, { time: 5000, max: 1 }).then(co => {
+ let ms = message.channel.send({embed: new Discord.RichEmbed().setTitle('ماذا تريد ان تبيع؟').setColor(0xFF0000)}).then(function(ms) {
+ let co = await message.channel.awaitMessages(m => m.id = message.author.id, { time: 5000, max: 1 }).then(function(co) => {
 if(co.first().length < 1) return;
 vip = co.first().content
  },
