@@ -21,12 +21,12 @@ vip = co.first().content
 })
  ms.edit("السعر ?")
  let cp = msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
-if(co.first().length < 1) return;
+if(co.first().length < 2) return;
 price = co.first().content
 })
  ms.edit("الوصف ?")
  let cd = msg.channel.awaitMessages(m => m.id = msg.author.id, { time: 5000, max: 1 }).then(co => {
-if(co.first().length < 1) return;
+if(co.first().length < 3) return;
 desc = co.first().content
  })
         var embed = new Discord.RichEmbed()
