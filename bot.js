@@ -38,7 +38,7 @@ decs = co.first().content
             msg.channel.send(`**تم نشر السلعة** :white_check_mark: `)
             msg.delete();
         c.send({embed})
-    }
+    
 });
 
 client.login(process.env.BOT_TOKEN); 
